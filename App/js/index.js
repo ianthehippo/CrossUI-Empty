@@ -8,7 +8,8 @@ xui.Class('App', 'xui.Module',{
         Required:[],
 
         // To initialize properties
-        properties : {},
+        properties : {
+        },
 
         // To initialize instance(e.g. properties)
         initialize : function(){
@@ -19,7 +20,36 @@ xui.Class('App', 'xui.Module',{
         iniComponents : function(){
             // [[Code created by CrossUI RAD Studio
             var host=this, children=[], append=function(child){children.push(child.get(0));};
-
+            
+            append(
+                xui.create("xui.UI.HTMLButton")
+                .setHost(host,"xui_ui_htmlbutton3")
+                .setLeft("4.571428571428571em")
+                .setTop("3.8095238095238093em")
+                .setCaption("Native Button")
+            );
+            
+            append(
+                xui.create("xui.UI.ComboInput")
+                .setHost(host,"xui_ui_comboinput6")
+                .setLeft("2.2857142857142856em")
+                .setTop("12.19047619047619em")
+                .setWidth("22.552380952380954em")
+                .setHeight("3.276190476190476em")
+                .setLabelSize("8em")
+                .setLabelCaption("File")
+                .setType("file")
+                .onMove([
+                    {
+                        "desc" : "Action 1",
+                        "type" : "control",
+                        "target" : "xui_ui_comboinput6",
+                        "args" : [ ],
+                        "method" : "activate"
+                    }
+                ])
+            );
+            
             return children;
             // ]]Code created by CrossUI RAD Studio
         },
@@ -28,6 +58,8 @@ xui.Class('App', 'xui.Module',{
         customAppend : function(parent, subId, left, top){
             // "return false" will cause all the internal UI controls will be added to the parent panel
             return false;
+        },
+        functions:{
         }
         /*,
         // To determine how properties affects this module
